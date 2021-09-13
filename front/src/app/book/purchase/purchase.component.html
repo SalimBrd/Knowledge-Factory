@@ -1,0 +1,90 @@
+<mat-horizontal-stepper [linear]="false" #stepper>
+  <mat-step [stepControl]="addressFormGroup">
+    <ng-template matStepLabel>Select a shipping address</ng-template>
+    <div *ngIf="currentUser" class="addresses mb-5">
+      <p>
+        Liste des addresses existantes :
+      </p>
+      <li *ngFor="let address of currentUser.addresses">
+        {{ address.city }} {{ address.country }} {{ address.street }} {{ address.postalCode }}
+      </li>
+    </div>
+    <form [formGroup]="addressFormGroup" (ngSubmit)="onSubmit()" class="row g-3 w-80">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>City</mat-label>
+          <input matInput formControlName="city" name="city" type="text" class="form-control" id="city" required>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>Country</mat-label>
+          <input matInput formControlName="country" name="country" type="text" class="form-control" id="country" required>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>Street</mat-label>
+          <input matInput formControlName="street" name="street" type="text" class="form-control" id="street" required>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field>
+          <mat-label>Postal Code</mat-label>
+          <input matInput formControlName="postalCode" name="postalCode" type="text" class="form-control" id="postalCode" required>
+        </mat-form-field>
+      </div>
+      <div class="col-10 mt-3">
+        <button class="btn btn-primary me-3" type="submit">Créer</button>
+      </div>
+      <p *ngIf="error" class="error">{{errorMsg}}</p>
+      <p *ngIf="success" class="success">Votre adresse a bien été crée</p>
+    </form>
+      <div class="col-3" style="padding:0; margin-top: 20px;">
+        <button class="btn btn-primary" mat-button matStepperNext>Next</button>
+      </div>
+  </mat-step>
+  <mat-step [stepControl]="payementFormGroup" label="Payment">
+    <form [formGroup]="payementFormGroup">
+      <mat-form-field>
+        <mat-label>Card number</mat-label>
+        <input matInput formControlName="secondCtrl" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name on card</mat-label>
+        <input matInput formControlName="secondCtrl" required>
+      </mat-form-field>
+      <mat-label>Expiration Date</mat-label>
+      <select>
+        <option value="1" selected>01</option>
+        <option value="2" selected>02</option>
+        <option value="3" selected>03</option>
+        <option value="4" selected>04</option>
+        <option value="5" selected>05</option>
+        <option value="6" selected>06</option>
+        <option value="7" selected>07</option>
+        <option value="8" selected>08</option>
+        <option value="9" selected>09</option>
+        <option value="10" selected>10</option>
+        <option value="11" selected>11</option>
+        <option value="12" selected>12</option>
+      </select>
+      <mat-form-field>
+        <mat-label>Security code (CVV)</mat-label>
+        <input matInput formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

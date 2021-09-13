@@ -1,0 +1,35 @@
+<div *ngIf="questionnaire" class="questionnaire-details container w-auto m-5 ">
+  <h3>Questionnaire n°{{ questionnaire.placement }}</h3>
+  <a routerLink="/courses" class="btn btn-primary return"><i class="fas fa-long-arrow-alt-left"></i> Retour à la liste des courses</a>
+  <div>
+    <div *ngIf="success" class="mask"></div>
+    <div class="card question question-{{question.id}}" *ngFor="let question of questions">
+      <div class="card-body">
+        <h5>Question {{ question.placement }} </h5>
+        <p class="card-text">{{ question.placement}}. {{ question.content }}</p>
+        <p class="multipleAnswers" *ngIf="question.multipleAnswers">Attention cette question comporte des choix multiples.</p>
+        <div class="answers">
+          <div class="answer" *ngFor="let answer of question.answers">
+            <p>
+              <input *ngIf="question.multipleAnswers" class="mr-3" type="checkbox" aria-label="Checkbox for following text input" (change)="checkAnswer($event, answer.id, question.id)">
+              <input (mouseup)="getLastRadioValue(answer.id, question.id)" *ngIf="!question.multipleAnswers" class="mr-3" type="radio" value="{{answer.id}}" name="question-{{question.id}}" aria-label="Checkbox for following text input" (change)="checkAnswer($event, answer.id, question.id)">
+              {{ answer.placement}}. {{ answer.content }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="infoMsg && questionAnswered.length != questions.length" class="infoMsg"><i class="fas fa-info-circle"></i> Vous devez répondre à encore {{questions.length - questionAnswered.length}} questions pour soumettre le questionnaire.</div>
+  <div *ngIf="failedMsg" class="failedMsg">Vous n'avez malheureusement pas réussi à valider le questionnaire, retentez votre chance !</div>
+  <div *ngIf="success" class="successMsg">
+    Bravo ! Vous avez réussi a avoir suffisamment de bonnes réponses pour valider le questionnaire.
+    Vous pouvez passer à la prochaine étape.
+  </div>
+  <button *ngIf="!success" class="btn btn-primary" (click)="submitResults()" [ngClass]="{'disabled': questionAnswered.length < questions.length}">Envoyer</button>
+  <div *ngIf="questionnaire && questionnaire.questions.length > 0" class="prev-next">
+    <button class="btn btn-primary" disabled><i class="fas fa-long-arrow-alt-left"></i> Précédent</button>
+    <button [routerLink]="['..', 2]" class="btn btn-primary">Suivant <i class="fas fa-long-arrow-alt-right"></i></button>
+  </div>
+
+</div>

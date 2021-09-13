@@ -1,0 +1,10 @@
+<div class="card mt-4">
+  <h4 class="card-header">User listing :</h4>
+  <div class="card-body">
+    <h6>Users</h6>
+    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+    <ul *ngIf="users">
+      <li *ngFor="let user of users"><a routerLink="{{user.id}}">{{user.username}}</a></li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="container" ngShow="surveys">
+  <h1 class="mb-4 mt-3">Workshop surveys</h1>
+  <h2 class="mb-4">Free</h2>
+  <!-- First row -->
+  <div class="default row mb-5">
+    <!-- First card -->
+    <div class="col-sm-6">
+      <div class="card">
+        <!-- If surveys -->
+        <div *ngIf="surveys && surveys.length > 0" class="card-body">
+          <h5 class="card-title">Current survey</h5>
+          <p>{{ surveys[0].title}}</p>
+          <div onLoad="hoverSquare()" class="survey-choices" [ngClass]="{'voted': voted}">
+            <div class="square" *ngFor="let choices of surveys[0].surveyChoices;">
+              <button *ngIf="voted != choices.id" class="vote-button btn btn-info" (click)="vote(choices.id, false);">Vote</button>
+              <button *ngIf="voted == choices.id" class="voted-button btn btn-light">Voted <span style="color: green"><i class="fa fa-check green"></i></span></button>
+              <div class="mask"><p>{{ choices.content }}</p></div>
+            </div>
+          </div>
+          <div [ngClass]="{'typewriter': voted > 0}" style="display:none;">
+            <p>Thank you for your vote !</p>
+          </div>
+        </div>
+        <!-- If no surveys -->
+        <div *ngIf="surveys && surveys.length == 0" class="card-body">
+          <h5 class="card-title">Current survey</h5>
+          <p *ngIf="!isAdmin" class="nosurvey">No current survey</p>
+          <p>Create Survey</p>
+          <div *ngIf="survey">
+            <label for="survey-title" class="form-label">Survey Title</label>
+            <input [(ngModel)]="survey.title" name="survey-title" type="text" class="form-control" id="survey-title" required>
+            <label for="survey-description" class="form-label">Survey Description</label>
+            <input [(ngModel)]="survey.description" name="survey-description" type="text" class="form-control" id="survey-description" required>
+          </div>
+          <div *ngIf="surveyChoices" class="row">
+            <div class="col-md-6" *ngFor="let choice of surveyChoices">
+              <label for="content-{{choice.placement}}" class="form-label">Survey choice {{choice.placement}}</label>
+              <input [(ngModel)]="surveyChoices[choice.placement - 1].content" name="content-{{choice.placement}}" type="text" class="form-control" id="content-{{choice.placement}}" required>
+            </div>
+          </div>
+          <button class="btn btn-primary mt-2" (click)="createSurvey(0)">Create</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second card -->
+
+    <div class="col-sm-6">
+      <div class="card">
+        <div *ngIf="surveys && surveys.length > 1" class="card-body">
+          <h5 class="card-title">Last week survey</h5>
+          <p>{{ surveys[1].title}}</p>
+          <div class="survey-choices">
+            <div class="square" *ngFor="let choices of surveys[1].surveyChoices;">
+              <p>{{ choices.content }}</p>
+              <div class="result-mask result-{{choices.placement}}"></div>
+            </div>
+          </div>
+          <button class="btn btn-primary survey-button" (click)="toggleResults(false)">Check results</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="mb-4">Premium</h2>
+  <!-- Second row -->
+
+  <div class="premium row position-relative">
+    <div *ngIf="isUser" class="hide-premium"></div>
+
+    <!-- Third card -->
+
+    <div class="col-sm-6">
+      <div class="card">
+        <div *ngIf="premiumSurveys && premiumSurveys.length > 0" class="card-body">
+          <h5 class="card-title">Current survey</h5>
+          <p>{{ premiumSurveys[0].title}}</p>
+          <div onLoad="hoverSquare()" class="survey-choices" [ngClass]="{'voted': votedPremium}">
+            <div class="square" *ngFor="let choices of premiumSurveys[0].surveyChoices;">
+              <button *ngIf="votedPremium != choices.id" class="vote-button btn btn-info" (click)="vote(choices.id, true);">Vote</button>
+              <button *ngIf="votedPremium == choices.id" class="voted-button btn btn-light">Voted <span style="color: green"><i class="fa fa-check green"></i></span></button>
+              <div class="mask"><p>{{ choices.content }}</p></div>
+            </div>
+          </div>
+          <div [ngClass]="{'typewriter': votedPremium > 0}" style="display:none;">
+            <p>Thank you for your vote !</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fourth card -->
+
+    <div class="col-sm-6">
+      <div class="card">
+        <div *ngIf="premiumSurveys && premiumSurveys.length > 1" class="card-body">
+          <h5 class="card-title">Last week survey</h5>
+          <p>{{ premiumSurveys[1].title}}</p>
+          <div class="survey-choices">
+            <div class="square" *ngFor="let choices of premiumSurveys[1].surveyChoices;">
+              <p>{{ choices.content }}</p>
+              <div class="result-mask result-{{choices.placement}}"></div>
+            </div>
+          </div>
+          <button class="btn btn-primary survey-button" (click)="toggleResults(true)">Check results</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

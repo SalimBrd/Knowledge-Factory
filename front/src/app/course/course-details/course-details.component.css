@@ -1,0 +1,40 @@
+.course-details {
+  text-align: justify;
+}
+
+  .course-details > div {
+    margin-bottom: 30px;
+  }
+
+.book {
+  box-shadow: 0px 2px 1px -2px rgb(0 0 0 / 20%), 0px 0px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  padding: 30px;
+}
+
+  .book .content {
+    display: flex;
+    gap: 25px;
+  }
+
+.prev-next {
+  text-align: center;
+}
+
+  .prev-next .btn {
+    margin: 0 20px;
+  }
+
+@media (max-width: 768px) {
+  .book .content {
+    display: block;
+  }
+
+  .book-info {
+    margin-top: 20px;
+  }
+
+  .content img {
+    display: block;
+    margin: auto;
+  }
+}

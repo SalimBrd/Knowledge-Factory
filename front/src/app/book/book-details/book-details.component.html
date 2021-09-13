@@ -1,0 +1,16 @@
+<div class="container">
+  <div *ngIf="book" class="book">
+    <a [routerLink]="['..']" class="btn btn-primary return"><i class="fas fa-long-arrow-alt-left"></i> Retour à la liste des livres</a>
+    <h1 class="book-title">{{book.title}}</h1>
+    <img src="/assets/img/book.jpg" width="250" />
+  </div>
+  <div class="book-info">
+    <p> De {{ book.author }}</p>
+    <p> Prix : {{ book.price }}€</p>
+
+    <p class="book-description">
+      Description : {{ book.description }}
+    </p>
+    <button class="btn btn-warning" [routerLink]="['purchase']">Commander <i class="fas fa-shopping-cart"></i></button>
+  </div>
+</div>

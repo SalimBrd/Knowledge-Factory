@@ -1,0 +1,37 @@
+<div class="card mt-4">
+  <h4 class="card-header">Create Book</h4>
+  <div class="card-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="row g-3">
+      <div class="col-md-6">
+        <label for="title" class="form-label">Title</label>
+        <input [(ngModel)]="book.title" name="title" type="text" class="form-control" id="title" value="{{book.title}}" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="author" class="form-label">Author</label>
+        <input [(ngModel)]="book.author" name="author" type="text" class="form-control" id="author" value="{{book.author}}" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="description" class="form-label">Description</label>
+        <input [(ngModel)]="book.description" name="description" type="text" class="form-control" id="description" value="{{book.description}}" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="price" class="form-label">Price</label>
+        <input [(ngModel)]="book.price" name="price" type="text" class="form-control" id="price" value="{{book.price}}" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="premium" class="form-label">Premium </label>
+        <select [(ngModel)]="book.premium" name="premium">
+          <option [ngValue]="false">false</option>
+          <option [ngValue]="true">true</option>
+        </select>
+      </div>
+      <div class="col-12 mt-3">
+        <button class="btn btn-primary me-3" type="submit">Créer</button>
+      </div>
+    </form>
+  </div>
+</div>

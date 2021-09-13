@@ -1,0 +1,103 @@
+<div class="course-details container w-auto m-5 ">
+  <a [routerLink]="['..']" class="btn btn-primary return"><i class="fas fa-long-arrow-alt-left"></i> Retour à la liste des courses</a>
+
+  <p>Template par défaut pour créer des courses</p>
+
+  <div>
+    <h4>Lorem Ipsum</h4>
+
+    <p>
+      Is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+      when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    </p>
+  </div>
+
+  <div>
+    <h4>Lorem Ipsum</h4>
+
+    <p>
+      has survived not only five centuries, but also the leap into electronic typesetting,
+      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+      sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+      like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+  </div>
+
+  <div>
+    <h4>Lorem Ipsum</h4>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Duis aliquet porta ipsum pellentesque aliquam. Maecenas euismod erat ligula,
+      eget varius nisi scelerisque tincidunt. Morbi rhoncus tortor eu tristique condimentum.
+      Suspendisse vestibulum dapibus accumsan. Aenean sed lorem in eros volutpat sodales.
+      Nullam faucibus, turpis ut dictum vehicula, tortor sapien vestibulum est,
+      sit amet congue magna nisi non sem. Donec faucibus magna vitae erat convallis,
+      luctus fringilla lorem elementum. Suspendisse blandit in felis vitae ultricies.
+    </p>
+  </div>
+
+  <div>
+    <h4>Lorem Ipsum</h4>
+
+    <p>
+      Sed sagittis, sapien eget aliquet pulvinar, leo tortor eleifend lectus,
+      eget pellentesque nisl diam ut magna. Morbi luctus metus nec erat suscipit,
+      ut aliquam ipsum sodales. Aliquam pellentesque fermentum erat, et bibendum
+      urna pharetra at. Sed eleifend ultricies purus quis porttitor. Maecenas pretium
+      accumsan massa quis vulputate. Aliquam ac consequat elit, id volutpat magna.
+      Nulla facilisi. Donec suscipit varius nisl, quis dictum tortor lobortis nec.
+      Pellentesque commodo enim massa, a eleifend nisl hendrerit non. Nullam erat neque,
+      hendrerit vel lacus quis, finibus lacinia nisi. Curabitur quis libero blandit,
+      venenatis ipsum eu, malesuada ante. Nam eu euismod lectus. Morbi nec consectetur justo.
+      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+      Aenean convallis efficitur tristique. Pellentesque id eros volutpat, ullamcorper nibh eget,
+      luctus dui.
+    </p>
+  </div>
+
+  <div>
+    <h4>Lorem Ipsum</h4>
+
+    <p>
+      Sed sagittis, sapien eget aliquet pulvinar, leo tortor eleifend lectus,
+      eget pellentesque nisl diam ut magna. Morbi luctus metus nec erat suscipit,
+      ut aliquam ipsum sodales. Aliquam pellentesque fermentum erat, et bibendum
+      urna pharetra at. Sed eleifend ultricies purus quis porttitor. Maecenas pretium
+      accumsan massa quis vulputate. Aliquam ac consequat elit, id volutpat magna.
+      Nulla facilisi. Donec suscipit varius nisl, quis dictum tortor lobortis nec.
+      Pellentesque commodo enim massa, a eleifend nisl hendrerit non. Nullam erat neque,
+      hendrerit vel lacus quis, finibus lacinia nisi. Curabitur quis libero blandit,
+      venenatis ipsum eu, malesuada ante. Nam eu euismod lectus. Morbi nec consectetur justo.
+      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+      Aenean convallis efficitur tristique. Pellentesque id eros volutpat, ullamcorper nibh eget,
+      luctus dui.
+    </p>
+  </div>
+
+  <div *ngIf="book" class="book">
+    <div class="content">
+
+      <div>
+        <img src="/assets/img/book.jpg" width="250" />
+      </div>
+      <div class="book-info">
+        <h5>{{ book.title }}</h5>
+        <p> De {{ book.author }}</p>
+        <p> Prix : {{ book.price }}€</p>
+
+        <p class="book-description">
+          Description : {{ book.description }}
+        </p>
+        <button class="btn btn-warning" routerLink="/books/{{book.id}}">Commander <i class="fas fa-shopping-cart"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="course && course.questionnaires.length > 0" class="prev-next">
+    <button class="btn btn-primary" disabled><i class="fas fa-long-arrow-alt-left"></i> Précédent</button>
+    <button [routerLink]="['questionnaire', questionnaire.id]" class="btn btn-primary">Suivant <i class="fas fa-long-arrow-alt-right"></i></button>
+
+  </div>
+</div>

@@ -1,0 +1,15 @@
+mat-form-field {
+    display: block;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.error {
+  padding: 20px;
+  background: #FFCCCC;
+}
+
+.success {
+  padding: 20px;
+  background: #ccffce;
+}

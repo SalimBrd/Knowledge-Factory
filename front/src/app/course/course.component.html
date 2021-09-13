@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="btn-group mb-5">
+    <button data-toggle="button" class="btn btn-primary mr-3" role="button" aria-pressed="false" autocomplete="off" (click)="loadDefault(); premiumState ? premiumState = false : premiumState = false; ">Non premium</button>
+    <button data-toggle="button" class="btn btn-secondary" role="button" aria-pressed="false" autocomplete="off" (click)="loadPremium(); !premiumState ? premiumState = true : premiumState = true;">Premium</button>
+  </div>
+  <p *ngIf="premiumState && isUser">
+    Cette section est reservée aux abonnés, pour avoir accès aux courses premium et à d'autres
+    avantages, <a href="/subscription">cliquez ici</a>
+  </p>
+  <p *ngIf="!premiumState">Vous pouvez retrouver ici l'intégralité de nos courses gratuites en ligne</p>
+  <p *ngIf="premiumState && !isUser">Vous pouvez retrouver ici l'intégralité de nos courses premium en ligne</p>
+
+  <div class="courses" [ngClass]="{ 'disabled' : premiumState && isUser}">
+    <div class="mask"></div>
+    <div class="card mb-5" *ngFor="let course of courses">
+      <div class="card-body">
+        <div>
+          <img *ngIf="!premiumState" src="/assets/img/course.jpg" width="250" />
+          <img *ngIf="premiumState" src="/assets/img/premium.jpg" width="250" />
+        </div>
+        <div class="content">
+          <h5>{{ course.title }}</h5>
+          <span><img src="/assets/img/difficulty.svg" width="18" style="padding-bottom: 3px;" /> {{course.difficulty.charAt(0) + course.difficulty.slice(1).toLowerCase()}} <img src="/assets/img/clock.svg" width="18" style="margin-left: 20px; padding-bottom: 3px;" /> {{course.suggestedHours}} hours</span>
+          <p class="card-text">{{course.description}}</p>
+          <a routerLink="{{course.id}}" class="btn btn-primary">Commencer</a>
+        </div>
+      </div>
+    </div>
+    <mat-paginator [length]="length"
+                   [pageSize]="pageSize"
+                   [pageIndex]="pageIndex"
+                   (page)="pageEvent = handlePageEvent($event)">
+    </mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+insert into answer(content, placement, success, question_id) values ('Réponse 1', 1, 0, 1);
+insert into answer(content, placement, success, question_id) values ('Réponse 2', 2, 1, 1);
+insert into answer(content, placement, success, question_id) values ('Réponse 3', 3, 0, 1);
+insert into answer(content, placement, success, question_id) values ('Réponse 1', 1, 1, 2);
+insert into answer(content, placement, success, question_id) values ('Réponse 2', 2, 0, 2);
+insert into answer(content, placement, success, question_id) values ('Réponse 3', 3, 0, 2);
+insert into answer(content, placement, success, question_id) values ('Réponse 1', 1, 0, 3);
+insert into answer(content, placement, success, question_id) values ('Réponse 2', 2, 0, 3);
+insert into answer(content, placement, success, question_id) values ('Réponse 3', 3, 1, 3);
+insert into answer(content, placement, success, question_id) values ('Réponse 4', 4, 1, 3);

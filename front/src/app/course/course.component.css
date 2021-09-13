@@ -1,0 +1,30 @@
+.container {
+  min-height: 300px;
+  padding-top: 50px;
+}
+
+.card-body {
+  display: flex;
+  gap: 25px;
+}
+
+.content {
+  position: relative;
+}
+
+.content a {
+  position: absolute;
+  bottom: 0;
+}
+
+.disabled {
+    position: relative;
+}
+
+.disabled .mask {
+    background: rgba(255,255,255, 0.4);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}

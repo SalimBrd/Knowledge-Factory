@@ -1,0 +1,34 @@
+<div class="card mt-4">
+  <h4 class="card-header">User listing :</h4>
+  <div *ngIf="user" class="card-body">
+    <h6>{{ user.username }}</h6>
+    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+    <div *ngIf="isAdmin || profile">
+      <div>
+        <button class="btn btn-primary" routerLink="./create"><i class="fa fa-plus-square me-2"></i> Create Address</button>
+        <button class="btn btn-secondary float-end" routerLink="./settings"><i class="fa fa-cogs"></i> Settings</button>
+      </div>
+      <h5 class="mt-5 mb-3">List of all addresses</h5>
+      <ul class="mb-4" *ngIf="user.addresses">
+        <li *ngFor="let address of user.addresses">
+          <a routerLink="./address/{{ address.id }}">{{ address.city }} {{ address.country }} {{ address.street }} {{ address.postalCode }}</a>
+        </li>
+      </ul>
+      <h5 class="mb-4">List of all diplomas</h5>
+      <div *ngIf="profile" class="diplomas col-sm-12 col-md-8 col-lg-6">
+        <div class="card mb-5" *ngFor="let course of courses">
+          <div class="card-body">
+            <div class="content">
+              <h5>{{ course.title }}</h5>
+              <ng-container *ngFor="let diploma of diplomas">
+                <p *ngIf="diploma.courseId == course.id">Acquired at {{diploma.creationDate.substring(0, 10)}}</p>
+              </ng-container>
+              <p class="card-text">{{course.description}}</p>
+              <a href="https://edit.org/img/blog/hh1-diploma-certificate-template-course.jpg" class="btn btn-primary" target="_blank">Voir le pdf</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

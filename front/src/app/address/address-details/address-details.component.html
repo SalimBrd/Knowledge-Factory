@@ -1,0 +1,28 @@
+<div class="card mt-4">
+  <h4 class="card-header">Address Details :</h4>
+  <div class="card-body">
+    <a [routerLink]="['../..']" class="btn btn-primary return"><i class="fas fa-long-arrow-alt-left"></i> Retour</a>
+    <form *ngIf="address" #f="ngForm" (ngSubmit)="onSubmit(f)" class="row g-3">
+      <div class="col-md-6">
+        <label for="city" class="form-label">City</label>
+        <input [(ngModel)]="address.city" name="city" type="text" class="form-control" id="city" value="{{address.city}}" required>
+      </div>
+      <div class="col-md-6">
+        <label for="country" class="form-label">Country</label>
+        <input [(ngModel)]="address.country" name="country" type="text" class="form-control" id="country" value="{{address.country}}" required>
+      </div>
+      <div class="col-md-6">
+        <label for="street" class="form-label">Street</label>
+        <input [(ngModel)]="address.street" name="street" type="text" class="form-control" id="street" value="{{address.street}}" required>
+      </div>
+      <div class="col-md-4">
+        <label for="postalCode" class="form-label">PostalCode</label>
+        <input [(ngModel)]="address.postalCode" name="postalCode" type="text" class="form-control" id="postalCode" value="{{address.postalCode}}" required>
+      </div>
+      <div class="col-12 mt-3">
+        <button class="btn btn-primary me-3" type="submit">Modifier</button>
+        <button class="btn btn-danger" type="button" (click)="deleteConfirmation()">Supprimer</button>
+      </div>
+    </form>
+  </div>
+</div>

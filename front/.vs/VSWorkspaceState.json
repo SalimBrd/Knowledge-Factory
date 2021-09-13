@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\authentication\\register",
+    "\\src\\app\\course",
+    "\\src\\app\\models",
+    "\\src\\app\\questionnaire\\questionnaire-details",
+    "\\src\\app\\services",
+    "\\src\\app\\user",
+    "\\src\\app\\user\\user-details"
+  ],
+  "SelectedNode": "\\README.md",
+  "PreviewInSolutionExplorer": false
+}

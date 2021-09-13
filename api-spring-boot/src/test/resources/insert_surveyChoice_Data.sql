@@ -1,0 +1,12 @@
+insert into survey_choice(content, placement, survey_id) values ('Choix 1', 1, 1);
+insert into survey_choice(content, placement, survey_id) values ('Choix 2', 2, 1);
+insert into survey_choice(content, placement, survey_id) values ('Choix 3', 3, 1);
+insert into survey_choice(content, placement, survey_id) values ('Choix 4', 4, 1);
+insert into survey_choice(content, placement, survey_id) values ('Choix 1', 1, 2);
+insert into survey_choice(content, placement, survey_id) values ('Choix 2', 2, 2);
+insert into survey_choice(content, placement, survey_id) values ('Choix 3', 3, 2);
+insert into survey_choice(content, placement, survey_id) values ('Choix 4', 4, 2);
+insert into survey_choice(content, placement, survey_id) values ('Choix 1', 1, 3);
+insert into survey_choice(content, placement, survey_id) values ('Choix 2', 2, 3);
+insert into survey_choice(content, placement, survey_id) values ('Choix 3', 3, 3);
+insert into survey_choice(content, placement, survey_id) values ('Choix 4', 4, 3);

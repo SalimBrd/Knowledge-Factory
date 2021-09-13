@@ -1,0 +1,22 @@
+<div class="book-container container">
+  <div>
+    <h1 class="book-title">Liste des livres en vente actuellement</h1>
+  </div>
+
+  <div class="books row">
+
+    <div class="book col-lg-3 col-md-4 col-sm-6" *ngFor="let book of books">
+      <div>
+        <img src="/assets/img/book.jpg" width="200" />
+      </div>
+      <div class="book-info">
+        <h5>{{book.title}}</h5>
+        <p>Author : {{book.author}}</p>
+        <p>Price : {{book.price}} €</p>
+        <button class="btn btn-warning" [routerLink]="[book.id]">Commander <i class="fas fa-shopping-cart"></i></button>
+        <button class="btn btn-warning" (click)="addToCart(book)">Ajouter au panier</button>
+        <button class="btn btn-warning" (click)="removeFromCart(book.id)">Retirer du panier</button>
+      </div>
+    </div>
+  </div>
+</div>

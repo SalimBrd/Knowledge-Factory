@@ -1,0 +1,102 @@
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron-container">
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Welcome to Knowledge Factory</h1>
+      <p>This website is designed for people who wants to have access to the best tools to learn and practice.</p>
+      <p><a class="btn btn-primary btn-lg" routerLink="/abcd" role="button">Learn more &raquo;</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <h1 class="display-3 mb-3">Our services</h1>
+    <div class="col-md-4">
+      <h2>Online formation</h2>
+      <p>
+        Our service was made to give the maximum potential of learning, you'll have access to
+        free and premium courses. Various topic are adressed, from IT to Mathematics...
+      </p>
+      <p><a class="btn btn-secondary" routerLink="/courses" role="button">View details &raquo;</a></p>
+
+    </div>
+    <div class="col-md-4">
+      <h2>Online Workshops</h2>
+      <p>
+        In addition to the courses, 1 time a week (2 for premium users), you'll have a workshop that will
+        be animated by a professional of the domain. What makes our workshops great is that every week, our users
+        will have access to a survey with 4 choices, the survey with the most votes will be the topic of the week.
+      </p>
+      <p><a class="btn btn-secondary" routerLink="/workshops" role="button">View details &raquo;</a></p>
+
+    </div>
+    <div class="col-md-4">
+      <h2>Digital Library</h2>
+      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p><a class="btn btn-secondary" href="/books" role="button">View details &raquo;</a></p>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- Pricing component -->
+
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Pricing</h1>
+    <p class="lead">
+      We currently have two offers at the moment, you can access to the entire website with
+      our free offer, but the premium add courses, workshops and a better support.
+    </p>
+  </div>
+
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 box-shadow">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Free</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Access to our free courses</li>
+          <li>Access to our free workshops</li>
+          <li>Can vote for free surveys</li>
+          <li>Help center access</li>
+          <br />
+          <br />
+        </ul>
+        <div *ngIf="!currentUser" class="row pricing">
+          <div class="col-md-6 ">
+            <button type="button" class="btn btn-lg btn-outline-primary" routerLink="/register">Sign up for free</button>
+          </div>
+          <div class="col-md-6">
+            <button type="button" class="btn btn-lg btn-outline-primary" routerLink="/register">Sign in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-4 box-shadow">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Pro</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Unlocked premium courses</li>
+          <li>Access to regular and premium workshops</li>
+          <li>Can vote for both free and premium surveys</li>
+          <li>Online chat with professionals of your desired topic</li>
+          <li>Live replay of the previous workshops</li>
+          <li>Better help center access</li>
+        </ul>
+        <button routerLink="/subscription" type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
+      </div>
+    </div>
+
+  </div>
+</div> <!-- /container -->

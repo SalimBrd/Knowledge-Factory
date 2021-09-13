@@ -1,0 +1,35 @@
+<div class="card mt-4">
+  <h4 class="card-header">Edit Course</h4>
+  <div class="card-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="row g-3">
+      <div class="col-md-6">
+        <label for="title" class="form-label">Title</label>
+        <input [(ngModel)]="course.title" name="title" type="text" class="form-control" id="title" value="{{course.title}}" required>
+      </div>
+      <div class="col-md-6">
+        <label for="difficulty" class="form-label">Difficulty</label>
+        <select [(ngModel)]="course.difficulty" name="difficulty">
+          <option [ngValue]="'EASY'">EASY</option>
+          <option [ngValue]="'MEDIUM'">MEDIUM</option>
+          <option [ngValue]="'HARD'">HARD</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label for="suggestedHours" class="form-label">Suggested Hours</label>
+        <input [(ngModel)]="course.suggestedHours" name="suggestedHours" type="text" class="form-control" id="suggestedHours" value="{{course.suggestedHours}}" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="premium" class="form-label">Premium </label>
+        <select [(ngModel)]="course.premium" name="premium">
+          <option [ngValue]="false">false</option>
+          <option [ngValue]="true">true</option>
+        </select>
+      </div>
+      <div class="col-12 mt-3">
+        <button class="btn btn-primary me-3" type="submit">Edit</button>
+      </div>
+    </form>
+  </div>
+</div>

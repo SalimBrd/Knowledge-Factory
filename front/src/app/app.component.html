@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark justify-content-between">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Knowledge Factory</a>
+    <div class="collapse navbar-collapse" id="navbarText" *ngIf="currentUser">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/courses">Courses </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Workshop
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="workshops">Online workshop</a>
+            <a class="dropdown-item" href="surveys">Surveys</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/books">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/subscription">Subscribe</a>
+        </li>
+
+
+      </ul>
+      <span>
+        <span *ngIf="isSub" style="color: gold;"><i class="fas fa-crown"></i></span>
+        <a *ngIf="user" class="nav-item nav-link" style="display: inline-block" routerLink="/user/{{user.id}}">{{user.username}}</a>
+      </span>
+      <span class="navbar-nav">
+        <a class="nav-item nav-link logout-button" (click)="logout()">Logout</a>
+      </span>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarText" *ngIf="!currentUser">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/user"></a>
+        </li>
+
+      </ul>
+      <span>
+        <a class="nav-item nav-link" routerLink="/login">Sign in</a>
+      </span>
+      <span class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/register">Sign up</a>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<app-cart></app-cart>
+<app-footer></app-footer>
